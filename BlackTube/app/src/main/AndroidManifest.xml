@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="kr.hs.dgsw.donghyeon.blacktube">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".widget.BlackTubeApplication"
         android:allowBackup="true"
