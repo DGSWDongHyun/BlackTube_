@@ -40,7 +40,7 @@ class VideoAdapter(private val arrayData : ArrayList<VideoData> = arrayListOf())
 
 class VideoViewHolder(val view : ItemVideoListBinding) : RecyclerView.ViewHolder(view.root) {
     fun bind(data : VideoData) {
-        Glide.with(view.videoThumbnails.context).load(data.snippetData.thumbnailsData?.imageHigh!!.imageURL).into(view.videoThumbnails)
+        Glide.with(view.videoThumbnails.context).load(data.snippetData.thumbnailsData?.imageHigh!!.imageURL).centerCrop().into(view.videoThumbnails)
         view.channelName.text = data.snippetData.channelName
         view.videoTitle.text = data.snippetData.title
     }

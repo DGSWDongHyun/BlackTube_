@@ -9,11 +9,10 @@ android {
     compileSdk 30
     buildToolsVersion "30.0.3"
 
-    dataBinding.enabled = true
 
     defaultConfig {
         applicationId "kr.hs.dgsw.donghyeon.blacktube"
-        minSdk 28
+        minSdk 24
         targetSdk 30
         versionCode 1
         versionName "1.0"
@@ -33,6 +32,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
+    }
+    buildFeatures {
+        dataBinding true
     }
 }
 

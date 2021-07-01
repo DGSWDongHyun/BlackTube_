@@ -17,10 +17,10 @@ interface YoutubeAPI {
     ) : Single<retrofit2.Response<YoutubeResultData>>
 
     @GET("search")
-    fun getList(@Query("channelId") channelName : String = Constants.BASIC_CHANNEL,
+    fun getNextList(@Query("channelId") channelName : String = Constants.BASIC_CHANNEL,
                 @Query("key") key : String = Constants.BASIC_KEY,
                 @Query("type") type : String = Constants.BASIC_TYPE,
-                @Query("page") page : String = "",
+                @Query("pageToken") page : String = "CB4QAA",
                 @Query("order") order : String = Constants.BASIC_ORDER,
                 @Query("part") part : String = Constants.BASIC_PART,
                 @Query("maxResults") result : String = Constants.BASIC_RESULT

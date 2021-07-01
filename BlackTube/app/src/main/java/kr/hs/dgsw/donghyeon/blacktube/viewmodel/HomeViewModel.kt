@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.observers.DisposableSingleObserver
 import kr.hs.dgsw.donghyeon.blacktube.base.BaseViewModel
+import kr.hs.dgsw.donghyeon.blacktube.data.VideoData
 import kr.hs.dgsw.donghyeon.blacktube.data.YoutubeResultData
 import kr.hs.dgsw.donghyeon.blacktube.network.api.YoutubeAPI
 import kr.hs.dgsw.donghyeon.blacktube.repo.YoutubeRepository
@@ -19,28 +20,28 @@ class HomeViewModel @Inject constructor(
 ) : BaseViewModel() {
 
     var nextPageToken = ""
-    val videoAdapter = MutableLiveData<VideoAdapter>()
     val isEnded = MutableLiveData<Boolean>()
+    val videoAdapter = VideoAdapter()
 
     init {
-        videoAdapter.value = VideoAdapter()
         onLoadVideoList()
     }
 
-    fun onMoreVideoList() {
-        addDisposable(repository.parseNextYoutubeList(pageToken = nextPageToken),
+    fun addMoreVideoList() {
+        Log.d("TAG", "nextPageToken : $nextPageToken")
+        addDisposable(repository.parseNextYoutubeList(nextPageToken),
             object : DisposableSingleObserver<retrofit2.Response<YoutubeResultData>>() {
-                override fun onSuccess(response : Response<YoutubeResultData>) {
+                override fun onSuccess(response: Response<YoutubeResultData>) {
                     if(response.isSuccessful) {
                         if(response.code() == 200) {
                             nextPageToken = response.body()?.nextTokenName!!
-                            Log.d("Response", "$nextPageToken , ${response.body()?.itemList!!}")
-                            videoAdapter.value?.addData(response.body()?.itemList!!)
+                            videoAdapter.addData(response.body()?.itemList!!)
+                            Log.d("Response", "response is ${response.body()?.itemList!!}")
                         }
                     }
                 }
 
-                override fun onError(error : Throwable) {
+                override fun onError(error: Throwable) {
                     Log.d("Error", "${error.message}")
                 }
 
@@ -55,8 +56,8 @@ class HomeViewModel @Inject constructor(
                     if(response.isSuccessful) {
                         if(response.code() == 200) {
                             nextPageToken = response.body()?.nextTokenName!!
+                            videoAdapter.setData(response.body()?.itemList!!)
                             Log.d("Response", "${response.body()?.itemList!!}")
-                            videoAdapter.value?.setData(response.body()?.itemList!!)
                         }
                     }
                 }
