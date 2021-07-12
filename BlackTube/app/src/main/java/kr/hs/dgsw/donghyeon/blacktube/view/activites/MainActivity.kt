@@ -1,4 +1,4 @@
-package kr.hs.dgsw.donghyeon.blacktube.view
+package kr.hs.dgsw.donghyeon.blacktube.view.activites
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

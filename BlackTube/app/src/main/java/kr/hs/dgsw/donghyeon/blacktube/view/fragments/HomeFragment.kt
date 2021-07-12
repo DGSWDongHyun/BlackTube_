@@ -1,4 +1,4 @@
-package kr.hs.dgsw.donghyeon.blacktube.view
+package kr.hs.dgsw.donghyeon.blacktube.view.fragments
 
 import android.os.Bundle
 import android.util.Log
