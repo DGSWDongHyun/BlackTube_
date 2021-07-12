@@ -5,6 +5,8 @@
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_play_list.xml" value="0.13652482269503546" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.14336372847011145" />
         <entry key="app/src/main/res/layout/item_video_list.xml" value="0.40255574894569846" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.375" />
       </map>

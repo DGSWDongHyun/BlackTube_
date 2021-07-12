@@ -12,5 +12,4 @@ class YoutubeRepository @Inject constructor(
     fun parseYoutubeList() : Single<retrofit2.Response<YoutubeResultData>> = youtubeAPI.getList()
 
     fun parseNextYoutubeList(pageToken : String) : Single<retrofit2.Response<YoutubeResultData>> = youtubeAPI.getNextList(page = pageToken)
-
 }

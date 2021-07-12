@@ -33,7 +33,7 @@ abstract class BaseFragment<VB : ViewDataBinding, VM : ViewModel> : Fragment() {
         viewDataBinding = DataBindingUtil.inflate(inflater, layoutRes, container, false)
 
         viewDataBinding.run {
-            lifecycleOwner = requireActivity()
+            lifecycleOwner = viewLifecycleOwner
             setVariable(BR.viewModel, viewModel)
             executePendingBindings()
         }
