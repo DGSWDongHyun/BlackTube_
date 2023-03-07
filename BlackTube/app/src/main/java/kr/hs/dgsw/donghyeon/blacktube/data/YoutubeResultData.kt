@@ -13,8 +13,15 @@ data class YoutubeResultData(
 )
 
 data class VideoData(
+    @SerializedName("id")
+    var id : VideoID?,
     @SerializedName("snippet")
     var snippetData: SnippetData
+)
+
+data class VideoID(
+    @SerializedName("videoId")
+    var id : String?,
 )
 
 data class SnippetData(

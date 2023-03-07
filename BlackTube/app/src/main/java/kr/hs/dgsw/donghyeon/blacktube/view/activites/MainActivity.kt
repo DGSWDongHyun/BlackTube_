@@ -20,8 +20,9 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
         get() = ViewModelProvider(this)[MainViewModel::class.java]
 
     override fun onViewCreated(view: ActivityMainBinding) {
-        AppBarConfiguration.Builder(R.id.icon_home, R.id.icon_playlist, R.id.icon_user).build()
-        val navController = Navigation.findNavController(this, R.id.fragmentContainerView)
-        NavigationUI.setupWithNavController(view.bottomNavigationView, navController)
+//        AppBarConfiguration.Builder(R.id.icon_home, R.id.icon_playlist, R.id.icon_user).build()
+//        val navController = Navigation.findNavController(this, R.id.fragmentContainerView)
+//
+//        NavigationUI.setupWithNavController(view.bottomNavigationView, navController)
     }
 }
